@@ -1,0 +1,100 @@
+<view class='login'>
+  <image class='login-bg' src='/resource/imgs/login_bg.jpg'></image>
+  <text class='login-title'>欢迎来到天纵联盟</text>
+  <!-- <view class='login-step'>
+    <view class='step-item {{nowStep == 1 ? "active": nowStep > 1 ? "actived": ""}}'>
+      <view class='step-number'>1</view>
+      <text>个人信息</text>
+    </view>
+    <view class='step-dot {{nowStep > 1 ? "active": ""}}'>
+      <view class='dot'></view>
+      <view class='dot'></view>
+      <view class='dot'></view>
+      <view class='dot'></view>
+      <view class='dot'></view>
+    </view>
+    <view class='step-item {{nowStep == 2 ? "active": nowStep > 2 ? "actived": ""}}'>
+      <view class='step-number'>2</view>
+      <text>上传订单</text>
+    </view>
+    <view class='step-dot {{nowStep > 2 ? "active": ""}}'>
+       <view class='dot'></view>
+      <view class='dot'></view>
+      <view class='dot'></view>
+      <view class='dot'></view>
+      <view class='dot'></view>
+    </view>
+    <view class='step-item {{nowStep == 3 ? "active": ""}}'>
+      <view class='step-number'>3</view>
+      <text>登录</text>
+    </view>
+  </view> -->
+  <view class='step-content' style='transform: translateX({{-100 * (nowStep - 1)}}%);margin-top:80rpx;'>
+    <!--  step1  -->
+    <view class='login-form'>
+      <view class='form-item'>
+        <view class='item-wrapper'>
+          <text class='item-label'>姓名</text>
+          <input class='item-input' bindblur='getValue' data-key='name'></input>
+        </view>
+      </view>
+      <view class='form-item'>
+        <view class='item-wrapper'>
+          <text class='item-label'>手机</text>
+          <input class='item-input' maxlength='11' type='number' bindblur='getValue' data-key='phoneNumber'></input>
+        </view>
+      </view>
+      <view class='form-item'>
+        <view class='item-wrapper'>
+          <input class='item-input text-center' type='number' maxlength='4' bindblur='getValue' data-key='verifyCode'></input>
+          <button open-type='getUserInfo' class='item-addon {{!isLodingCheckCode ? "active":""}}' bindgetuserinfo='getCheckCode'>{{checkCodeBtnTxt}}</button>
+        </view>
+      </view>
+      <view class='form-item no-margin'>
+        <view class='item-checkbox'>
+          <checkbox-group bindchange='getValue' data-key='isChecked'>
+            <label class="checkbox">
+              <checkbox value='{{true}}' />
+              <text>我同意日产天籁</text>
+            </label>
+          </checkbox-group>
+          <view hover-class='none' class='user-agreement' bindtap='showAgreement'>《用户服务协议》</view>
+        </view>
+      </view>
+    </view>
+    <!--  step2  -->
+    <view class='login-form'>
+      <view class='login-uploader'>
+        <text>请上传您的订单信息</text>
+        <view class='uploader-img'>
+          <image src='{{imageUrl? imageUrl: "/resource/icons/plus.jpg"}}' bindtap='chooseImage'></image>
+        </view>
+      </view>
+    </view>
+    <!-- step3 -->
+    <view class='login-form'>
+      <view class='notice'>
+        <image src='/resource/icons/ok.png'></image>
+        <text>亲，您的订单已上传成功！</text>
+        <text>24小时内反馈审批结果</text>
+        <text>请注意天纵联盟（小程序）的提示</text>
+      </view>
+      <view class='count-down'>
+        <text>{{countDownText}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='form-item'>
+    <button class='form-btn {{nowStep == 1 ? "active": ""}}' bindtap='nextStep'>{{stepText}}</button>
+  </view>
+</view>
+<notice text='{{noticeText}}' switch-notice='{{showNotice}}'></notice>
+<!-- 模态框 -->
+<view class='modal-wrapper {{showModal?"active": ""}}'>
+<view class='modal ' data-id='close' bindtap='closeModal' catchtouchmove='true'>
+  <scroll-view class='modal-content' scroll-y>
+    <import src='../../data/agreement.wxml' />
+    <template is='agreement'></template>  
+  </scroll-view>
+</view>
+</view>

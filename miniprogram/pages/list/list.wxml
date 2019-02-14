@@ -1,0 +1,50 @@
+<view class='list-wrapper'>
+  <view class='list-header'>
+    <swiper class='swiper' indicator-dots indicator-active-color='#b32839' previous-margin='40rpx' next-margin='40rpx' autoplay interval='3000' circular bindchange='headerSwiperChange'>
+      <swiper-item class='swiper-item' wx:for='{{headerSwiperImgs}}' wx:key='item' wx:for-index='idx'>
+        <navigator hover-class='none' url='{{item.url}}' class='item-inner {{headerSwiperIndex === idx ? "active": ""}}'>
+          <image src='{{item.imageUrl}}'></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+    <view class='tabs-wrapper'>
+      <view class='tabs' bindtap='switchTab'>
+        <text class='tab {{nowTab === index? "active": ""}}' wx:key='alias' data-id='{{item.alias}}' data-tab='{{index}}' wx:for='{{pageTabs}}'>{{item.name}}</text>
+      </view>
+      <view class='tabs-slide-track'>
+        <view class='tabs-slide-thumb' wx:if='{{tabOffset.width}}' style='transform:translateX({{tabOffset.left}}px);width:{{tabOffset.width}}px'></view>
+      </view>
+    </view>
+  </view>
+  <view class='list-container' style='height: {{listHeight}}px'>
+    <swiper class='page-swiper' bindchange='changePageSwiper' current='{{nowTab}}'>
+     <swiper-item wx:for='{{pageTabs}}' wx:key='alias' data-id='{{item.alias}}'>
+        <long-list-view list-id='{{item.alias}}' list-data='{{listDatas[item.alias]}}' bindloadmore='loadMore' bindtodetail='toDetail' bindswitchlike='switchLike' is-scroll='{{isScroll}}' is-refresh='{{isRefresh}}'></long-list-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<!-- 小程序介绍  -->
+<view class='minip-intro-wrapper {{isShowIntroPanel?"active": ""}}'>
+  <view class='minip-intro' catchtouchmove='true'>
+    <view class='content'>
+      <image src='/resource/imgs/minip_intro.png'></image>
+    </view>
+    <view class='btns'>
+      <button open-type='share' class='iconfont icon-share'>分享</button>
+      <text class='iconfont icon-close' bindtap='closeIntro'>关闭</text>
+    </view>
+  </view>
+</view>
+<!-- 提示弹框  -->
+<view class='modal-wrapper {{showModal?"active": ""}}'>
+  <view class='modal' bindtap='closeModal' data-id='close' catchtouchmove='true'>
+    <view class='modal-content'>
+      <text>尊敬的用户</text>
+      <text>{{modalText}}</text>
+    </view>
+  </view>
+</view>
+<navigator url="/pages/h5/h5" hover-class='none' class='yuyue-shijia'>
+  <image src='/resource/icons/yuyue.png'></image>
+</navigator>

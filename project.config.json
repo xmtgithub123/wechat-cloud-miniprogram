@@ -1,0 +1,104 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false
+	},
+	"appid": "wx4cff77e081a1de2b",
+	"projectname": "%E5%A4%A9%E7%BA%B5%E8%81%94%E7%9B%9F",
+	"libVersion": "2.3.0",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 10,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "列表页",
+					"pathName": "pages/list/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/index/mine-index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "setting",
+					"pathName": "pages/mine/setting/setting",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "最近浏览",
+					"pathName": "pages/mine/lastview/lastview",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "车主认证",
+					"pathName": "pages/mine/owner/owner",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "上传订单",
+					"pathName": "pages/mine/order/order",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "活动",
+					"pathName": "pages/activity/activity",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "活动详情",
+					"pathName": "pages/activity-detail/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "活动",
+					"pathName": "pages/article/article",
+					"query": ""
+				}
+			]
+		}
+	}
+}

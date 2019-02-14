@@ -1,0 +1,25 @@
+<view class='activity-wrapper'>
+  <!-- <calendar></calendar> -->
+  <!-- <view class='more'>
+    <text>更多活动，敬请期待！</text>
+  </view> -->
+  
+  <navigator  wx:for='{{activityList}}' wx:key="item" hover-class='none' url='{{item.url}}'>
+    <view wx:if ="{{item.isStart}}">
+        <view wx:if="{{!item.isEnd}}">
+        <image src='{{item.startImg}}' class='activity-img'></image>
+      </view>
+      <view wx:else>
+        <image src='{{item.endImg}}' class='activity-img'></image>
+      </view>
+    </view>
+    <!-- <view wx:else>
+      <text class="gray_small_font">暂无活动,敬请期待！</text>
+    </view> -->
+    
+  </navigator>
+
+   <!-- <navigator  hover-class='none' url='/pages/activity-detail/detail?id={{activity.articleId}}'>
+      <image src='{{activity.imgUrl}}' class='activity-img'></image>
+  </navigator> -->
+</view>

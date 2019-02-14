@@ -1,0 +1,9 @@
+<view class='tab-bar-wrapper' style='{{position==="bottom" ? "bottom: 0;border-top: 1px solid " + borderColor : "top: 0;"}}'>
+  <view class='tab-bar' wx:for='{{list}}' style='{{"background-color:" + backgroundColor +";color:"+color+";"}}' bindtap='selectdTabBar' data-index='{{idx}}' wx:for-index='idx'  wx:key='idx'>
+    <view class='tab-bar-icon' wx:if='{{position==="bottom"}}'>
+      <image src='{{item.selectedIconPath}}' hidden='{{idx !== selectedIndex && item.selectedIconPath}}'></image>
+      <image src='{{item.iconPath}}' hidden='{{idx === selectedIndex && item.iconPath}}'></image>
+    </view>
+    <text style='{{selectedIndex===idx?("color:" + selectedColor) :""}}'>{{item.text}}</text>
+  </view>
+</view>

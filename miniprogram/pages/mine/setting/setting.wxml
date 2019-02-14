@@ -1,0 +1,51 @@
+<view class='setting-wrapper'>
+  <form bindsubmit='savePersonalInfo' class='user-info-form'>
+    <view class='form-item'>
+      <text>头像</text>
+      <image class='avatar' src='{{userInfo.avatarUrl}}' wx:if='{{userInfo.avatarUrl}}'></image>
+    </view>
+    <view class='form-item'>
+      <text>昵称</text>
+      <text>{{userInfo.nickName}}</text>
+    </view>
+    <view class='form-item'>
+      <text>手机</text>
+      <input bindblur='getValue' bindtap='validateUserAuth' maxlength='11' value='{{updateUserInfo.phoneNumber}}' bindblur='getValue' data-key='phoneNumber' class='phone-input' disabled='{{!canIUpdate}}'></input>
+    </view>
+    <view class='form-item address-select-wrapper'>
+      <view class='address-select'>
+        <text>地址</text>
+        <picker mode='region' bindchange='getPC' value='{{updateUserInfo.address.values}}'>
+          <view class='select-item'>
+            <view>
+              <text>{{updateUserInfo.address && updateUserInfo.address.province ? updateUserInfo.address.province:'省份'}}</text>
+              <text class='iconfont icon-arrow_down'></text>
+            </view>
+            <view>
+              <text>{{updateUserInfo.address &&updateUserInfo.address.city ? updateUserInfo.address.city:'城市'}}</text>
+              <text class='iconfont icon-arrow_down'></text>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <input bindblur='getValue' data-key='address.detail' value='{{updateUserInfo.address.detail}}'></input>
+    </view>
+    <view class='form-item'>
+      <button class='form-btn' form-type='submit'>保存</button>
+    </view>
+  </form>
+</view>
+<view class='modal' wx:if='{{showModal}}' bindtap='closeModal' data-id='modal'>
+  <view class='modal-content'>
+    <text>完善信息</text>
+    <view class='modal-input'>
+      <input placeholder='请输入手机号' auto-focus maxlength='11' value='{{modalInfo.phoneNumber}}' type='number' bindblur='getValue' data-key='modal:phone'></input>
+    </view>
+    <view class='modal-input'>
+      <input placeholder='请输入验证码' value='{{modalInfo.code}}'  maxlength='4' type='number' bindblur='getValue' data-key='modal:code'></input>
+      <button class='checkcode-btn' bindtap='getCheckCode'>{{checkCodeTxt}}</button>
+    </view>
+    <button class='modal-submit-btn' bindtap='checkIsUserSelf'>提交</button>
+  </view>
+</view>
+<notice text='{{noticeText}}' type='{{noticeType}}' switch-notice='{{showNotice}}'></notice>

@@ -1,0 +1,74 @@
+/* pages/index/index.wxss */
+page {
+  display: block;
+  background: white;
+  height: 100%;
+}
+.kv {
+  width: 100%;
+  height: 100%;
+}
+.kv image {
+  width: 100%;
+  height: 100%;
+}
+.main-page {
+  font-size: 0;
+  background: white;
+  position: absolute;
+  overflow: hidden;
+  top: calc(50% - 64px);
+  transform: translateY(-50%);
+}
+.index-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.video {
+  position: relative;
+  width: 101%;
+  height: 101%;
+  left: -0.5%;
+  top: -0.5%;
+  z-index: 100;
+  margin:auto;
+  display:block;
+  border: 1prx #ddd solid;
+  background: transparent;
+
+}
+.cover-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: white;
+}
+.header-imgs {
+  height: 160rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx 0 20rpx;
+}
+.logo-left {
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 10rpx;
+}
+.logo-right {
+  width: 330rpx;
+  height: 60rpx;
+}
+
+.movie-cover {
+  width: 100%;
+  height: 100%;
+}

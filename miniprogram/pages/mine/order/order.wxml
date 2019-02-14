@@ -1,0 +1,18 @@
+<view class='order-wrapper'>
+  <view class='order-bg'>
+    <image src='/resource/imgs/owner_bg.jpg'></image>
+  </view>
+  <view class='order-content'>
+    <image class='content-bg' src='/resource/imgs/content_bg.png'></image>
+    <view class='order-header'>
+      <image src='/resource/imgs/owner_avatar.jpg'></image>
+      <text>上传订单</text>
+    </view>
+    <view class='order-body'>
+      <text>请上传您的订单信息</text>
+      <image src='{{imageUrl}}' bindtap='chooseImg'></image>
+    </view>
+    <button class='order-btn' bindtap='submitInvoice'>提 交</button>
+  </view>
+</view>
+<notice text='{{noticeText}}' type='{{noticeType}}' switch-notice='{{showNotice}}'></notice>

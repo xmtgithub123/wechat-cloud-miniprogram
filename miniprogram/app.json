@@ -1,0 +1,59 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/video/video",
+    "pages/article/article",
+    "pages/login/login",
+    "pages/mine/index/mine-index",
+    "pages/mine/setting/setting",
+    "pages/activity/activity",
+    "pages/auth/auth",
+    "pages/mine/lastview/lastview",
+    "pages/mine/owner/owner",
+    "pages/web-view/web-view",
+    "pages/mine/order/order",
+    "pages/activity-detail/detail",
+    "pages/h5/index",
+    "pages/h5/h5",
+    "pages/share/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "天纵联盟",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "notice": "components/notice/notice"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxfe2124dddfd36794"
+  ],
+  "tabBar": {
+    "selectedColor": "#333333",
+    "color": "#999999",
+    "list": [
+      {
+        "pagePath": "pages/list/list",
+        "text": "首页",
+        "iconPath": "/resource/icons/index.png",
+        "selectedIconPath": "/resource/icons/index_s.png"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "活动",
+        "iconPath": "/resource/icons/activity.png",
+        "selectedIconPath": "/resource/icons/activity_s.png"
+      },
+      {
+        "pagePath": "pages/mine/index/mine-index",
+        "text": "我的",
+        "iconPath": "/resource/icons/mine.png",
+        "selectedIconPath": "/resource/icons/mine_s.png"
+      }
+    ]
+  }
+}

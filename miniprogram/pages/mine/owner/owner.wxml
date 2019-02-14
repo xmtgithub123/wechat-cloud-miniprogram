@@ -1,0 +1,19 @@
+<view class='owner-wrapper'>
+  <view class='owner-bg'>
+    <image src='/resource/imgs/owner_bg.jpg'></image>
+  </view>
+  <view class='owner-content'>
+    <image class='content-bg' src='/resource/imgs/content_bg.png'></image>
+    <view class='owner-header'>
+      <image src='/resource/imgs/owner_avatar.jpg'></image>
+      <text>天籁车主认证</text>
+    </view>
+    <view class='owner-body'>
+      <text>上传发票</text>
+      <text>请上传购车发票进行认证</text>
+      <image src='{{imageUrl}}' bindtap='chooseImg'></image>
+    </view>
+    <button class='owner-btn' bindtap='submitInvoice'>提 交</button>
+  </view>
+</view>
+<notice text='{{noticeText}}' type='{{noticeType}}' switch-notice='{{showNotice}}'></notice>

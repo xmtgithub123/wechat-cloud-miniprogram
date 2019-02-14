@@ -1,0 +1,71 @@
+<view class='mine-wrapper' wx:if='{{showPage}}'>
+  <view class='mine-bg' wx:if='{{!isTLUser}}'>
+    <image src='/resource/imgs/mine_bg.jpg'></image>
+  </view>
+  <view class='mine-bg-other' wx:else>
+    <image src='/resource/imgs/mine_bg_other.jpg'></image>
+  </view>
+  <view class='mine-header' wx:if='{{!isTLUser}}'>
+    <view class='user-info'>
+      <view class='user-info-item'>
+        <text style='color: #c60023;font-size:32rpx;'>{{userInfo.nickName}}</text>
+        <text style='color: #e3b20a'>{{orderStatus}}</text>
+      </view>
+      <text style='margin-top:8rpx;'>{{(carInfo.carSeries ? carInfo.carSeries: '') + ' ' + (carInfo.carType ? carInfo.carType: '')}}</text>
+    </view>
+    <!-- <text class='iconfont icon-setting'></text> -->
+    <!-- <button class='get-user-info' open-type='getUserInfo' bindgetuserinfo='toSetting'></button> -->
+  </view>
+  <view class='mine-header-other' wx:else>
+    <view class='user-info-other'>
+      <image class='user-info-bg' src='/resource/imgs/mine_index_header.png'></image>
+      <!-- <view class='iconfont icon-setting'>
+        <button class='get-user-info' open-type='getUserInfo' bindgetuserinfo='toSetting'></button>
+      </view> -->
+      <text class='user-info-text-big'>{{userStatus}}</text>
+      <text class='user-info-text' wx:if='{{carInfo.totalDays < 30}}'>您的爱车正在赶来</text>
+      <view class='temp-wrapper' wx:else>
+        <view class='user-info-text' style='margin-top:100rpx;'>您的爱车正快马加鞭</view>
+        <view class='user-info-line'>
+          <view class='user-info-text'>等待期间您已获得
+            <text class='big-number'>{{carInfo.totalScore?carInfo.totalScore:0}}</text>积分</view>
+          <text class='user-info-underline' bindtap='showScoreTip'>积分规则</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='mine-body'>
+    <navigator url='/pages/mine/lastview/lastview' hover-class='none' class='mine-body-item'>
+      <image src='/resource/icons/lastview.png' mode='aspectFit'></image>
+      <text>最近浏览</text>
+    </navigator>
+    <navigator class='mine-body-item' hover-class='none' url='/pages/mine/order/order'>
+      <image src='/resource/icons/order.png'  mode='aspectFit'></image>
+      <text>上传订单</text>
+    </navigator>
+    <view class='mine-body-item' hover-class='none' bindtap='toOwnerVarify' hidden='{{isAuth && orderStatus == "认证车主"}}'>
+      <image src='/resource/icons/service.png' style='height: 36rpx;' mode='aspectFit'></image>
+      <text>车主认证</text>
+    </view>
+    <!-- <button class='mine-body-item' hover-class='none' open-type='contact'>
+      <image src='/resource/icons/contact.png' mode='aspectFit'></image>
+      <text>联系客服</text>
+    </button> -->
+    <button class='mine-body-item' open-type='getUserInfo' bindgetuserinfo='toSetting'>
+      <image src='/resource/icons/setting.png' mode='aspectFit'></image>
+      <text>设置</text>
+    </button>
+  </view>
+</view>
+<!-- 积分规则 -->
+<view class='modal-wrapper {{showScoreModal?"active": ""}}'>
+  <view class='modal' bindtap='closeModal' data-id='close'>
+    <view class='modal-content score'>
+      <image src='/resource/imgs/tip_header.png'></image>
+      <view class='score-content'>
+        <text decode='true'>{{scoreRule}}</text>
+      </view>
+    </view>
+    <text class='iconfont icon-close-circle' bindtap='closeScoreModal'></text>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+.activity-wrapper {
+  padding: 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.more {
+  font-size: 32rpx;
+  color: #999;
+  display: flex;
+  justify-content: center;
+}
+.activity-img {
+  width: 670rpx;
+  height: 660rpx;
+  border-radius: 10rpx;
+}
+.gray_small_font {
+  font-size:30rpx;
+  color:gray;
+  text-align:center;
+  margin:0 auto;
+  display:block;
+}

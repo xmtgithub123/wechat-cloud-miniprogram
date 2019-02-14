@@ -1,0 +1,7 @@
+<!--pages/share/index.wxml-->
+<!-- <web-view wx:if="{{h5url}}" src="{{h5url}}"></web-view> -->
+<view>
+  <web-view wx:if="{{h5url}}" src="{{h5url}}"></web-view>
+</view>
+<!-- <view>{{h5url}}</view>
+<view>{{answerEndTime}}</view> -->

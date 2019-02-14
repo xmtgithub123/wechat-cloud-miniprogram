@@ -1,0 +1,18 @@
+<scroll-view scroll-y class='view-wrapper' enable-back-to-top bindscrolltolower='loadMore'>
+  <view class='item-wrapper' wx:for='{{viewList}}'  wx:key='_id'>
+    <navigator url='{{item.type == 1 ? "/pages/article/article?id=" +item._id : "/pages/video/video?id=" +item._id}}' class='view-item' hover-class='none'>
+      <view class='item-left'>
+      <image src='{{item.cover}}' mode='aspectFill'></image>
+        <view class='iconfont icon-play item-play' wx:if='{{item.type===2}}'></view>
+      </view>
+      <view class='item-content'>
+        <text class='item-title'>{{item.title}}</text>
+        <text class='item-time iconfont icon-clock'>{{item.createTime}}</text>
+      </view>
+    </navigator>
+  </view>
+  
+  <view class='no-item' wx:if='{{!viewList.length}}'>
+    <text>您还没有浏览过任何文章~</text>
+  </view>
+</scroll-view>

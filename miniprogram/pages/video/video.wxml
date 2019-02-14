@@ -1,0 +1,54 @@
+<view class='video-wrapper' hidden='{{!isShowPage}}'>
+  <view class='article-header'>
+    <video src='{{video.videoUrl}}' autoplay></video>
+    <view class='article-view-info'>
+      <view>
+        <text>{{video.createtime}}</text>
+        <text style='margin-left: 40rpx;'>{{video.viewCount ?video.viewCount: 0 }}次播放</text>
+      </view>
+      <view class='icons'>
+        <text class='iconfont icon-heart {{isLike ? "active" : ""}}' bindtap='switchLikeThisVideo'>{{video.likeNum ? video.likeNum : 0}}</text>
+        <button open-type='share' class='iconfont icon-share no-margin'></button>
+      </view>
+    </view>
+  </view>
+  <view class='article'>
+    <text class='article-title'>{{video.title}}</text>
+    <text class='aricle-from'>内容来源：{{video.from}}</text>
+    <import src="../../plugins/wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData: content.nodes}}"/>
+  </view>
+  <view class='article-footer'>
+    <!-- 分享 -->
+    <view class='share-area'>
+      <text>分享至</text>
+      <view class='share-btns'>
+        <button bindgetuserinfo='clickPengyouquan' open-type='getUserInfo'>
+          <text class='iconfont icon-pengyouquan'></text>好友圈</button>
+        <button open-type='share'>
+          <text class='iconfont icon-weixin'></text>微信好友</button>
+      </view>
+    </view>
+    <view class='recommendation-video' wx:if='{{reVideoList.length}}'>
+      <text class='recommendation-title'>推荐视频</text>
+      <view class='recommendation-item' wx:for="{{reVideoList}}" wx:key='{{item._id}} ' bindtap='toVideo' data-id='{{item._id}}'>
+        <image src='{{item.cover}}'></image>
+        <view class='item-content'>
+          <text class='item-title'>{{item.title}}</text>
+          <text class='item-tags'>#{{item.tags}} / {{item.duration}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class='float-share' bindtap='goBack' wx:if='{{isFromShare}}'>
+    <text class='iconfont icon-back'></text>
+  </button>
+</view>
+<view class='modal' catchtouchmove='true' wx:if='{{isShowModal}}'>
+  <view class='modal-content'>
+    <image class='share-img' src='{{shareInfo.shareImg}}' ></image>
+    <button bindtap='openSetting' class='share-tip' disabled='{{hasAuthToSave}}'>{{shareTip}}</button>
+    <view class='modal-btn' bindtap='closeModal'><text>知道了</text></view>
+  </view>
+</view>
+<canvas canvas-id='share' style='width:1110px;height:1436px;position:fixed;z-index:1000;top:-10000px;'></canvas>

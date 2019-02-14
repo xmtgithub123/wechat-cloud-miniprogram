@@ -1,0 +1,79 @@
+:host {
+  width: 100%;
+  text-align: center;
+}
+.calendar-wapper {
+  width: 100%;
+  font-size: 10pt;
+  color: #999999;
+  background: white;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.calendar-week {
+  display: flex;
+  font-size: 8pt;
+  color: #666666;
+  justify-content: space-between;
+}
+.calendar-week text {
+  min-width: 80rpx;
+  height: 40rpx;
+}
+.calendar-day-wrapper {
+  width: 100%;
+  
+}
+.calendar-day-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-day-col {
+  min-width: 80rpx;
+  min-height:60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar-day-col.current-month {
+  color: #333333;
+}
+.calendar-pointer {
+  height: 60rpx;
+  display: flex;
+  width: 400rpx;
+  margin: auto;
+  margin-bottom: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.show-date {
+  height: 100%;
+  width: 200rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border: 1px #ddd solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30rpx;
+}
+.pointer {
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+  overflow: hidden;
+}
+.pointer::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #666666;
+  transform:rotate(45deg) skew(-20deg, -20deg) ;
+}
+.pointer-right::before {
+  left: -50%;
+}

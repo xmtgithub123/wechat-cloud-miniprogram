@@ -1,0 +1,38 @@
+.agreement {
+  font-size: 10pt;
+  color: #808080;
+  padding: 36rpx;
+}
+.agreement text {
+  display: block;
+ 
+}
+.p-h2 {
+  text-align: center;
+  margin: 40rpx 0;
+  font-size: 13pt;
+  font-weight: bold;
+}
+.p-h3 {
+  margin: 30rpx 0;
+  font-size: 11pt;
+  font-weight: bold;
+}
+.p-h4 {
+  font-size: 10pt;
+  margin: 20rpx 0 ;
+  font-weight: bold;
+}
+.p-content {
+   text-align: justify;
+   text-indent: 2em;
+   line-height: 1.6;
+}
+.p-divide {
+  border-bottom: 1rpx #ccc solid;
+  padding: 20rpx 0 10rpx; 
+}
+.p-end {
+  margin: 30rpx 0;
+  text-indent: 0;
+}

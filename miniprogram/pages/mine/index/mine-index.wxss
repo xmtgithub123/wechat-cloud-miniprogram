@@ -1,0 +1,253 @@
+.mine-wrapper {
+  width: 100%;
+  position: relative;
+  color: #333333;
+  z-index: 10;
+}
+.mine-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 350rpx;
+  z-index: -1;
+}
+.mine-bg-other {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 450rpx;
+  z-index: -1;
+}
+.mine-bg image,.mine-bg-other image  {
+  width: 100%;
+  height: 100%;
+}
+.mine-header {
+  width: 100%;
+  height: 300rpx;
+  box-sizing: border-box;
+  padding: 33rpx 40rpx;
+  position: relative;
+}
+.mine-header-other {
+  width: 100%;
+  height: 450rpx;
+  box-sizing: border-box;
+  padding: 40rpx  40rpx 30rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 5rpx 10rpx 0 #ccc;
+  position: relative;
+  color: white;
+}
+.user-info-other {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 50rpx 26rpx 30rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+.temp-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user-info-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  border-radius: 15rpx;
+  box-shadow: 0 5rpx 10rpx 0 rgba(0,0,0,0.6);
+}
+.user-info-text-big {
+  font-size: 40rpx;
+}
+.user-info-text {
+  font-size: 28rpx;
+  color: #ccc;
+  height: 56rpx;
+  display: flex;
+  align-items: flex-end;
+}
+.big-number {
+  color:white;
+  font-size:70rpx;
+  margin:0 15rpx;  
+  line-height: 1;
+}
+.user-info-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.user-info-underline {
+  position: absolute;
+  top: 50rpx;
+  right: 66rpx;
+  font-size: 28rpx;
+  text-decoration: underline;
+  color: #ccc;
+}
+.get-user-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+.user-info {
+  width: 204rpx;
+  position: absolute;
+  right: 100rpx;
+  top: 86rpx;
+  font-size: 28rpx;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+.user-info-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mine-body {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+}
+.mine-body-item {
+  width: 100%;
+  height: 120rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  background-color: white;
+  box-shadow: 0 0 15rpx 0 rgba(0,0,0,0.1);
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+  padding: 20rpx 0;
+}
+.mine-body-item image {
+  height: 62rpx;
+  width: 188rpx;
+}
+.mine-body-item text {
+  padding-left: 40rpx;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  border-left: 1rpx #ccc solid;
+}
+.icon-setting {
+  position: absolute;
+  right: 40rpx;
+  font-size: 42rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.user-info-other .icon-setting {
+  right: 66rpx;
+  color: white;
+}
+
+/* 模态框 */
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  opacity: 0;
+}
+.modal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-wrapper.active {
+  z-index: 100;
+  opacity: 1;
+}
+.modal-wrapper.active .modal {
+   background-color: rgba(0,0,0,0.6);
+}
+.modal-content {
+  width: 576rpx;
+  min-height: 220rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  background-color: white;
+  padding: 36rpx 72rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.5s ease;
+  transform: translateY(-10%) scale(0.8);
+} 
+.modal-wrapper.active .modal-content {
+  transform:translateY(-10%) scale(1);
+}
+.modal-text {
+  font-size: 28rpx;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content.score {
+  width: 616rpx;
+  height: 700rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: transparent;
+  position: relative;
+}
+.modal-content.score image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-radius: 15rpx 15rpx 0 0; 
+}
+.score-content {
+  width: 100%;
+  height: calc(100% - 110rpx);
+  font-size: 28rpx;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.8;
+  box-sizing: border-box;
+  padding: 40rpx 50rpx;
+  margin-top: 100rpx;
+  align-items: flex-start;
+  background: white;
+  border-radius:  0 0 15rpx 15rpx;
+  overflow-y: auto;
+}
+.icon-close-circle {
+  position: absolute;
+  color: white;
+  font-size: 64rpx;
+  bottom: 15%;
+}

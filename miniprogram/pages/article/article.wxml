@@ -1,0 +1,75 @@
+<view class='article-wrapper' scroll-y hidden='{{!isShowPage}}'>
+  <view class='article-header'>
+    <view class='image-wrapper'>
+      <image src='{{article.cover}}' mode='widthFix' wx:if='{{article.cover}}'></image>
+    </view>
+    <view class='article-view-info'>
+      <view>
+        <text>{{article.createtime}}</text>
+        <text style='margin-left: 40rpx;'>{{article.viewCount ?article.viewCount: 0 }}人浏览</text>
+      </view>
+      <view class='icons'>
+        <text class='iconfont icon-heart {{isLike ? "active" : ""}}' bindtap='switchLikeThisArticle'>{{article.likeNum ? article.likeNum : 0}}</text>
+        <button open-type='share' class='iconfont icon-share no-margin'></button>
+      </view>
+    </view>
+  </view>
+  <view class='article'>
+    <text class='article-title'>{{article.title}}</text>
+    <text class='aricle-from'>内容来源：{{article.from}}</text>
+
+    <view class='auto-img' wx:if="{{article.webViewImg}}">
+      <image src="{{article.webViewImg}}" mode='widthFix' data-path="{{article.webViewImg}}" bindtap="tapImgAutoSave"></image>
+    </view>
+    
+ 
+
+    <import src="../../plugins/wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData: content.nodes}}" />
+  </view>
+  <view class='article-footer'>
+    <view class='article-view-info'>
+      <view>
+        <text>{{article.viewCount ?article.viewCount: 0 }}人浏览</text>
+      </view>
+      <view class='icons'>
+        <text class='iconfont icon-heart {{isLike ? "active" : ""}}' bindtap='switchLikeThisArticle'>{{article.likeNum ? article.likeNum : 0}}</text>
+        <button open-type='share' class='iconfont icon-share'>{{article.shareNum ? article.shareNum : 0}}</button>
+      </view>
+    </view>
+ 
+    <!-- 分享 -->
+    <view class='share-area'>
+      <text>分享至</text>
+      <view class='share-btns'>
+        <button bindgetuserinfo='clickPengyouquan' open-type='getUserInfo'>
+          <text class='iconfont icon-pengyouquan'></text>好友圈</button>
+        <button open-type='share'>
+          <text class='iconfont icon-weixin'></text>微信好友</button>
+      </view>
+    </view>
+    <view class='recommendation-article'>
+      <text class='recommendation-title'>推荐阅读</text>
+      <view class='recommendation-item' wx:for="{{reArticleList}}" wx:key='{{item._id}} ' bindtap='toArticle' data-id='{{item._id}}'>
+        <image src='{{item.cover}}' mode='widthFix'></image>
+        <view class='item-title'>
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class='float-share' style='transition: all 0.2s ease; bottom:{{isShowFloatShare ? "180rpx":"40rpx"}}' wx:if='{{isFromShare}}' bindtap='goBack'>
+    <text class='iconfont icon-back'></text>
+  </button>
+  <button open-type='share' class='float-share' hidden='{{!isShowFloatShare}}'>
+    <text class='iconfont icon-share'></text>
+  </button>
+</view>
+<view class='modal' catchtouchmove='true' wx:if='{{isShowModal}}'>
+  <view class='modal-content'>
+    <image class='share-img' src='{{shareInfo.shareImg}}'></image>
+    <button bindtap='openSetting' class='share-tip' disabled='{{hasAuthToSave}}'>{{shareTip}}</button>
+    <view class='modal-btn' bindtap='closeModal'><text>知道了</text></view>
+  </view>
+</view>
+<canvas canvas-id='share' style='width:1110px;height:1436px;position:fixed;z-index:1000;top:-10000px;'></canvas>

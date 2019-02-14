@@ -1,0 +1,29 @@
+<recycle-view batch="{{batchSetRecycleData}}" id="{{listId}}" class='list' height='{{listHeight}}' bindscrolltolower='loadMore' is-scroll='{{isScroll}}'>
+  <recycle-item wx:for="{{showData}}" wx:key="_id" class='list-item-wrapper'>
+    <view class='list-item'>
+      <view class='item-header'>
+        <view class='item-header-image'>
+          <image src='{{item.fromImg}}' wx:if='{{item.fromImg}}'></image>
+          <text>{{item.from ? item.from : '东风日产'}}</text>
+        </view>
+        <button open-type='share' class='iconfont icon-share' data-item='{{item}}'></button>
+      </view>
+      <view class='item-body' bindtap='toDetail' data-id='{{item._id}}' data-type='{{item.type}}' data-activity='{{item.isActivity}}' data-activityurl='{{item.activityUrl}}'>
+        <image class='item-body-image' src='{{item.cover}}' mode='widthFix' wx:if='{{item.cover}}'></image>
+        <view class='item-tags'><text>{{item.tags}}</text></view>
+        <view class='item-image-num' wx:if='{{item.imageNum}}'><text>{{item.imageNum}}</text></view>
+        <view class='iconfont icon-play item-play' wx:if='{{item.type===2 || item.type===6}}'></view>
+        <view class='item-body-title'>
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+      <view class='item-footer'>
+        <text class='iconfont icon-clock'>{{item.createtime}}</text>
+        <view class='view-info'>
+          <text class='iconfont icon-view'>{{item.viewCount?item.viewCount: 0}}</text>
+          <text class='iconfont icon-heart {{item.isLike ? "active": ""}}' bindtap='switchLike' data-index='{{item.idx}}' data-item='{{item}}' style='margin-left: 40rpx;'>{{item.likeNum ? item.likeNum : 0}}</text>
+        </view>
+      </view>
+    </view>
+  </recycle-item>
+</recycle-view>

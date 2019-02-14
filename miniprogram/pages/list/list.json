@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "long-list-view": "/components/longListView/longListView"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

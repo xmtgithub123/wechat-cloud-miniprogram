@@ -1,0 +1,19 @@
+<view class='calendar-wapper'>
+  <view class='calendar-pointer'>
+    <view class='pointer pointer-left' bindtap='switchMonth' data-action='pre'></view>
+    <view class='show-date'>
+      <text>{{showCalendarDate}}</text>
+    </view>
+    
+    <view class='pointer pointer-right' bindtap='switchMonth' data-action='next'></view>
+  </view>
+  <view class='calendar-week'>
+    <text wx:for='{{weekText}}' wx:key='*this'>{{item}}</text>
+  </view>
+  <view class='calendar-day-wrapper'>
+    <view class='calendar-day-row' wx:for='{{monthWeekDays}}' wx:for-item='week' wx:for-index='idx' wx:key='{{idx}}'>
+      <view class='calendar-day-col {{item.isNow?"current-month":""}}' 
+      wx:for='{{week}}' wx:key='day'>{{item.day}}</view>
+    </view>
+  </view>
+</view>

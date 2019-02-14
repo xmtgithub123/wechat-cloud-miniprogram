@@ -1,0 +1,8 @@
+<!-- <view class="main-page" style='width:{{videoWidth}}px;height:{{videoHeight}}px;'>
+  <video class='video' id='index-mov' src='{{videoSrc}}' objectFit='cover' controls='{{false}}' show-progress='{{flase}}' show-fullscreen-btn='{{false}}' show-play-btn='{{false}}' show-center-play-btn='{{false}}' enable-progress-gesture='{{false}}'  bindended='toList' autoplay  binderror='toList' bindplay='showVideo' direction='{{0}}'  initial-time='{{0}}'>
+  <cover-view class='cover-img'   wx:if='{{!isShowVideo}}'></cover-view>
+  </video>
+</view> -->
+<!-- <view class='kv'>
+  <image src='cloud://yx-8d220c.7978-yx-8d220c/index/kv.jpg'></image>
+</view> -->

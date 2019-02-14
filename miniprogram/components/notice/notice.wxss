@@ -1,0 +1,33 @@
+:host {
+  width: 100%;
+}
+.notice {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  min-height: 36px;
+  color: white;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  transform: translateY(-101%);
+}
+.notice.active {
+ transform: translateY(0);
+}
+.notice.error {
+  background-color: #F56C6C;
+}
+.notice.success {
+  background-color: #67C23A;
+}
+.notice.info {
+  background-color: #909399;
+}
+.notice.warning {
+  background-color: #E6A23C;
+}

@@ -1,0 +1,7 @@
+
+<view class="container">
+  <view class="pageH5">
+  <!-- <text>{{url}}</text> -->
+    <web-view src='{{url}}' bindmessage="bindmessage"></web-view>
+  </view>
+</view>

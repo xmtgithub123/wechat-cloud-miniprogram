@@ -1,0 +1,113 @@
+<view class='detail-wrapper'>
+  <view class='detail-header'>
+    <image src='{{detailHeader}}' mode='aspectFill'></image>
+  </view>
+  <view class='detail-body'>
+    <view class='activity-wrapper'>
+      <view class='activity-info'>
+        <view class='activity-name'>
+          <text class='tag'>{{isClose ? '已结束':'报名中'}}</text> 您有一封来自第七代天籁的邀请函</view>
+        <view class='participant' wx:if='{{participantList.length}}'>
+          <view class='participant-item' wx:for='{{participantList}}' wx:key='*this'>
+            <image src='{{item}}'></image>
+          </view>
+          <text wx:if='{{participantList.length > 3}}'>...</text>
+        </view>
+       <button class='sign-btn {{isJoin&&isSave || isClose?"grey":""}}' bindtap='showSelectDealerPicker'  disabled='{{(isJoin&&isSave)||isClose}}'>{{isClose ? "已结束":isJoin&&isSave?"已参加":"立即报名"}}</button>
+        <view class='divide-line'></view>
+        <view class='activity-detail'>
+          <view class='sponsor'>
+            <view style='display:flex;align-items:center;'>
+            <image src='/resource/icons/logo-2.png'></image>
+            <text>东风日产</text>
+            </view>
+          </view>
+          <!-- <view class='activity-time'>
+            <view class='time-v-line'></view>
+            <view class='time-line'>开始：2018-12-24</view>
+            <view class='time-line active'>结束：2018-12-29</view>
+          </view> -->
+          <view class='text-wrapper' style='margin-top:20rpx;'>
+            <text>转眼间，2018已逐渐离我们远去，2019的脚步声也越来越近……</text>
+            <text>\n</text>
+            <text>今年的你，以什么样的方式告别2018才算与众不同？</text>
+            <text>\n</text>
+            <text>什么样的锦鲤才是你心目中足以迎接2019的最佳礼物？</text>
+            <text>\n</text>
+            <text>是的，东风日产天籁正是为了这一切而来。</text>
+            <text>\n</text>
+            <text>\n</text>
+            <text>作为2018《时间的朋友》跨年演讲的独家冠名赞助商——<text style='color: #c90128'>东风日产天籁</text>，我们将在12月31日当晚，开放全国的17家专营店作为2018《时间的朋友》分会场，提供舒适的场地，温馨的服务，与大家一起共同聆听2018<text style='color: #c90128'>《时间的朋友》</text>跨年演讲。</text>
+            <text>\n</text>
+            <text>\n</text>
+            <text>为此，罗振宇老师也特地发出邀请，邀请热爱知识、乐于分享的你能够亲临现场，一起知识跨年！</text>
+            <text>\n</text>
+            <text>\n</text>
+            <view class='activity-video'>
+              <video autoplay='{{false}}' src='cloud://yx-8d220c.7978-yx-8d220c/112.mp4'></video>
+            </view>
+            <text>\n</text>
+            <text>在我们《时间的朋友》分会场，你能结识与你一样对自己有期许志同道合的伙伴，你们将一起在跨年的钟声中思考你的2018和2019，一起聆听罗振宇为你解读大时代下的小趋势，不仅如此，我们还准备了多重豪礼等你来拿！</text>
+            <text>\n</text>
+            <text>\n</text>
+            <text>看到这，你心动了吗？</text>
+            <text>\n</text>
+            <text>点击下方<text style='color: #c90128'>立即报名</text>，就可以报名参加活动了！而且，我们将在报名者中随机抽取6位幸运者，送出现场门票3张，第七代天籁纪念版车模3部。</text>
+            <text>\n</text>
+            <text>欢迎大家与第七代天籁一起，做时间的朋友，聆听知识的天籁！</text>
+          </view>
+          <button class='sign-btn {{isJoin&&isSave || isClose?"grey":""}}' bindtap='showSelectDealerPicker' style='margin-bottom:20rpx' disabled='{{(isJoin&&isSave)||isClose}}'>{{isClose ? "已结束":isJoin&&isSave?"已参加":"立即报名"}}</button>
+        </view>
+      </view>
+      <view class='activity-intro'>
+        <image src='{{detailImg}}' mode='aspectFill'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='dealer-wrapper' catchtouchmove='true' bindtap='closePanel' data-id='close' wx:if='{{showPicker}}'>
+  <view class='dealer-content'>
+    <view class='top-wrapper'>
+      <text class='decaler-title'>专营店选择</text>
+      <picker class='dealer-btn' range='{{decalerList}}' bindchange='selectDealer' range-key='storeName'>
+        <view class='temp-wrapper'>
+          <text>{{site.storeName?site.storeName:site}}</text>
+          <text class='iconfont icon-arrow_down'></text>
+        </view>
+      </picker>
+    </view>
+    <button class='submit-btn' loading='{{isSubmit}}' bindtap='submitInfo'>提交</button>
+  </view>
+</view>
+<view class='share-img' wx:if='{{showShare}}' catchtouchmove='true'  bindtap='closePanel' data-id='close-share'>
+  <view class='share'>
+    <image src='{{shareImg}}' ></image>
+    <button class='share-btn' open-type='writePhotosAlbum' bindtap='saveImg'>保存图片 可分享给好友哦</button>
+  </view>
+</view>
+<canvas canvas-id='shareCanvas'style='width:1200px;height:1630px;position:fixed;z-index:1000;top:-10000px;'></canvas>
+<notice text='{{noticeText}}' switch-notice='{{showNotice}}'></notice>
+<view class='back'>
+  <text class='iconfont icon-back' bindtap='goBack'></text>
+</view>
+<view class='winner-wrapper' wx:if='{{showWinner}}' catchtouchmove='true'>
+  <view class='winner-content'>
+    <image src='cloud://yx-8d220c.7978-yx-8d220c/winner_bg.png' class='winner-bg'></image>
+    <view class='winner-list'>
+      <text class='list-title'>《时间的朋友》活动现场门票</text>
+      <view class='winner'>
+        <view class='winner-item'><text>姓名</text><text>手机</text></view>
+        <view class='winner-item' wx:for='{{winnerList.ticket}}' wx:key='*this'><text>{{item.name}}</text><text>{{item.phoneNumber}}</text></view>
+      </view>
+    </view>
+    <view class='winner-list'>
+      <text class='list-title'>第七代天籁车模</text>
+      <view class='winner'>
+        <view class='winner-item'><text>姓名</text><text>手机</text></view>
+        <view class='winner-item' wx:for='{{winnerList.model}}' wx:key='*this'><text>{{item.name}}</text><text>{{item.phoneNumber}}</text></view>
+      </view>
+    </view>
+    <view class='winner-line'>谢谢您的参与</view>
+  </view>
+  <text class='iconfont icon-close-circle' bindtap='closePanel' data-id='close-winner'></text>
+</view>
